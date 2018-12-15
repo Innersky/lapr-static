@@ -1,2 +1,1 @@
-web: bin/start-nginx
-init-nginx: node init-nginx.js
+web: bin/start-nginx exec node init-nginx.js
