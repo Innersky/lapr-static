@@ -9,9 +9,9 @@ events {
 }
 
 http {
-        gzip on;
-        gzip_comp_level 2;
-        gzip_min_length 512;
+    gzip on;
+    gzip_comp_level 2;
+    gzip_min_length 512;
 
 	server_tokens off;
 
@@ -28,12 +28,17 @@ http {
 
 	server {
 		listen <%= ENV["PORT"] %>;
-		server_name _;
+		server_name www.track-note.com track-note.com;
 		keepalive_timeout 5;
+		autoindex on;
 
 		location / {
 			root /app/public;
-			index index.html;
 		}
+
+		location /api {
+            proxy_set_header Host $host;
+            proxy_pass http://api.track-note.com;
+        }
 	}
 }
