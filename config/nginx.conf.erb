@@ -31,7 +31,7 @@ http {
 		server_name www.track-note.com track-note.com;
 		keepalive_timeout 5;
 		autoindex on;
-		root /app/public
+		root /app/public;
 
 		location /api {
 		    proxy_set_header Host $host;
