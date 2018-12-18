@@ -31,15 +31,16 @@ http {
 		server_name www.track-note.com track-note.com;
 		keepalive_timeout 5;
 		autoindex on;
-
-		location / {
-			root /app/public;
-		}
+		root /app/public
 
 		location /api {
 		    proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_pass http://proxy.track-note.com;
+        }
+
+		location / {
+            try_files $uri $uri/ /index.html;
         }
 	}
 }
