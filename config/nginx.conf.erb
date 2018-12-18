@@ -35,7 +35,7 @@ http {
 
 		location /api {
             proxy_set_header X-Real-IP $remote_addr;
-            proxy_pass <%= ENV["API_RPOXY"] %>;
+            proxy_pass <%= ENV["API_PROXY"] %>;
         }
 
 		location / {
