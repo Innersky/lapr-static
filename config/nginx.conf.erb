@@ -36,8 +36,8 @@ http {
 			root /app/public;
 		}
 
-		location /proxy {
-            proxy_pass http://api.track-note.com;
+		location /api {
+            proxy_pass http://proxy.track-note.com;
         }
 	}
 }
