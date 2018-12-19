@@ -34,7 +34,7 @@ http {
 		root /app/public;
 
 		location /api {
-            proxy_set_header Host <%= ENV["HOST"] %>;
+            proxy_set_header Host tracknote-static-stage.herokuapp.com;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_redirect off;
             proxy_pass <%= ENV["API_PROXY"] %>;
