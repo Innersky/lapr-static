@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
-  devtool: process.env.NODE_ENV === "production" ? "none" : "source-map",
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js"
