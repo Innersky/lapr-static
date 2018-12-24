@@ -37,11 +37,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, "."),
-    hot: true,
-    disableHostCheck: true
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html"
