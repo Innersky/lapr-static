@@ -4,16 +4,19 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
+  devtool: process.env.NODE_ENV === "production" ? "none" : "inline-source-map",
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        loader: "ts-loader",
-        exclude: /node_modules/
+        test: /\.tsx?$/,
+        loader: "ts-loader"
       },
       {
         test: /\.css$/,
