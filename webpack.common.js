@@ -7,6 +7,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
+    publicPath: "/",
     filename: "[name].[hash:8].js"
   },
   resolve: {
