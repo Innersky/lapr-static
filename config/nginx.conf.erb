@@ -41,8 +41,8 @@ http {
             proxy_pass <%= ENV["API_SERVER"] %>;
         }
 
-		location ~ \/assets\/\.(gif|jpg|png)$ {
-            root ./assets;
+		location /assets {
+            autoindex off;
         }
 
 		location / {
