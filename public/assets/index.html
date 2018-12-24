@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--[if lt IE 11]>
+IE 10 and lower is not supported, please upgrade your browser.
+<![endif]-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tracknote</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<script>
+  navigator.userAgent.indexOf('MSIE 10.0;') > -1 &&
+  (document.getElementById('root').innerText = 'IE 10 and lower is not supported, please upgrade your browser.');
+  if (location.search === '?debug=true') {
+    var xmlRequest = new XMLHttpRequest();
+    xmlRequest.open( "POST", '/api/debug-browser', true );
+    xmlRequest.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+    xmlRequest.send(JSON.stringify({userAgent: navigator.userAgent}));
+  }
+</script>
+</body>
+</html>
