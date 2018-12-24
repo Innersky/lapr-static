@@ -31,7 +31,6 @@ http {
 		server_name _;
 		keepalive_timeout 5;
 		autoindex on;
-		root /app;
 
 		location /api {
 		    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -42,11 +41,12 @@ http {
         }
 
 		location /public {
+		    root /app;
             autoindex off;
         }
 
 		location / {
-		    root /build
+		    root /app/build;
             try_files $uri $uri/ /index.html;
         }
 	}
