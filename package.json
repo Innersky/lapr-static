@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "webpack --config webpack.prod.js"
   },
@@ -22,6 +23,7 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-router": "^4.4.3",
     "@types/react-router-dom": "^4.3.1",
+    "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.2",
     "html-webpack-plugin": "^3.2.0",
     "node": "^11.5.0",

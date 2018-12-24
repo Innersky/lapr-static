@@ -1,12 +1,13 @@
 const path = require("path");
 const webpack = require("webpack");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[hash:8].js"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
@@ -38,6 +39,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin([
+      'dist',
+      'build'
+    ]),
     new HtmlWebpackPlugin({
       template: "index.html"
     }),
