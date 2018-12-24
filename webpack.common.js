@@ -2,13 +2,14 @@ const path = require("path");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
-    filename: "[name].[hash:8].js"
+    filename: "[name].[hash:8].js",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
@@ -23,16 +24,15 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: "css-loader",
+            loader: 'typings-for-css-modules-loader',
             options: {
               modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+              namedExport: true,
+              camelCase: true
             }
           }
         ]
@@ -47,7 +47,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html"
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[hash:8].css"
+    }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.WatchIgnorePlugin([
+      /css\.d\.ts$/
+    ])
   ]
 };
