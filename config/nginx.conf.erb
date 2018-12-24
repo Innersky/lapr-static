@@ -40,6 +40,14 @@ http {
             proxy_pass <%= ENV["API_SERVER"] %>;
         }
 
+		location = /favicon.ico {
+		    root /app/public/favicon;
+		    return 204;
+            access_log     off;
+            log_not_found  off;
+            autoindex off;
+        }
+
 		location /public {
 		    root /app;
             autoindex off;
