@@ -4,7 +4,7 @@
   "description": "Static server",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --open",
+    "dev-start": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "webpack --config webpack.prod.js"
