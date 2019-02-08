@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -36,6 +37,11 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto",
       }
     ]
   },
@@ -54,6 +60,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.WatchIgnorePlugin([
       /css\.d\.ts$/
-    ])
+    ]),
+    new Dotenv()
   ]
 };
