@@ -61,6 +61,8 @@ module.exports = {
     new webpack.WatchIgnorePlugin([
       /css\.d\.ts$/
     ]),
-    new Dotenv()
+    new Dotenv({
+      systemvars: true
+    })
   ]
 };
