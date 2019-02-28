@@ -2,8 +2,6 @@ import GlobalLoadingIndicator from "../components/loading-indicators/global-load
 
 export default class HttpRequestDelegate {
 
-  private static loadingIndicator: GlobalLoadingIndicator;
-
   public static bindLoadingIndicator(indicator: GlobalLoadingIndicator) {
     this.loadingIndicator = indicator;
   }
@@ -40,4 +38,6 @@ export default class HttpRequestDelegate {
         }
       });
   }
+
+  private static loadingIndicator: GlobalLoadingIndicator;
 }

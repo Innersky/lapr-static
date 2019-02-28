@@ -1,14 +1,21 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-react"
     ],
     "jsRules": {
         "object-literal-sort-keys": false
     },
     "rules": {
         "no-console": [false],
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "no-trailing-whitespace": [true, "ignore-blank-lines"],
+        "whitespace": [
+            true,
+            "check-module"
+        ],
+        "jsx-no-multiline-js": false
     },
     "rulesDirectory": []
 }
