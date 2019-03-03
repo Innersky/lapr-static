@@ -1,4 +1,4 @@
-import GlobalLoadingIndicator from "../components/loading-indicators/global-loading-indicator";
+import GlobalLoadingIndicator from "../components/loading-indicators/global-loading-bar";
 
 export default class HttpRequestDelegate {
 
@@ -12,12 +12,12 @@ export default class HttpRequestDelegate {
     showLoading: boolean,
     successCallback?: (data: any) => void,
     errorCallback?: () => void,
-    finallyCallback?: () => void
+    finallyCallback?: () => void,
   ): void {
     if (showLoading) {
       this.loadingIndicator.start();
     }
-    params.credentials = 'include';
+    params.credentials = "include";
     fetch(url, params).then((res: Response) => res.json())
       .then((data) => {
         if (successCallback) {
