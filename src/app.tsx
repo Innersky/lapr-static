@@ -13,12 +13,11 @@ let firstName = "";
 let lastName = "";
 
 const startLoadingBar = () => {
-  console.log(123);
-  store.dispatch(startLoading());
+  store.dispatch(startLoading() as any);
 };
 
 const stopLoadingBar = () => {
-  store.dispatch(stopLoading());
+  store.dispatch(stopLoading() as any);
 };
 
 const Index = () => (

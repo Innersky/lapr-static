@@ -28,11 +28,14 @@ export const stopLoading = () => (
 export const PROGRESS_LOADING = "PROGRESS_LOADING";
 
 export const progressLoading = () => (
-  (dispatch: any, getState: any) => {
+  (dispatch: any, getState: () => any) => {
     setTimeout(() => {
-      dispatch(setProgress(
-        getState().progress + (90 - getState().progress) * PROGRESS_INCREMENT));
-      if (getState().show) {
+      dispatch(
+        setProgress(
+          getState().globalLoadingBar.progress + (90 - getState().globalLoadingBar.progress) * PROGRESS_INCREMENT
+        )
+      );
+      if (getState().globalLoadingBar.show) {
         dispatch(progressLoading());
       } else {
         dispatch(setProgress(0));

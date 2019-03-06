@@ -1,4 +1,8 @@
-import { SET_PROGRESS, SET_SHOW_LOADING, SET_STOPPING } from "./global-loading-bar.actions";
+import {
+  SET_PROGRESS,
+  SET_SHOW_LOADING,
+  SET_STOPPING,
+} from "./global-loading-bar.actions";
 const initialState = {
     progress: 0,
     show: false,
@@ -12,7 +16,6 @@ export default (state = initialState, { type, ...payload }: any) => {
         ...state,
         ...payload,
     };
-
   case SET_STOPPING:
     return {
         ...state,

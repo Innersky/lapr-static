@@ -10,9 +10,9 @@ interface IGlobalLoadingBarProps {
 
 const mapStateToProps = (state: any) => {
   return {
-    progress: state.progress,
-    show: state.show,
-    stopping: state.stopping,
+    progress: state.globalLoadingBar.progress,
+    show: state.globalLoadingBar.show,
+    stopping: state.globalLoadingBar.stopping,
   };
 };
 

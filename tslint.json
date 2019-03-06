@@ -15,7 +15,8 @@
             true,
             "check-module"
         ],
-        "jsx-no-multiline-js": false
+        "jsx-no-multiline-js": false,
+        "trailing-comma": false
     },
     "rulesDirectory": []
 }
