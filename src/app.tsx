@@ -3,14 +3,38 @@ import * as React from "react";
 import { Query } from "react-apollo";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import * as styles from "./app.css";
+import { startLoading, stopLoading } from "./components/loading-indicators/global-loading-bar.actions";
 import { API_PATH } from "./constants/urls";
+import { store } from "./index";
 
 let email = "";
 let password= "";
 let firstName = "";
 let lastName = "";
 
-const Index = () => <h2>Home</h2>;
+const startLoadingBar = () => {
+  console.log(123);
+  store.dispatch(startLoading());
+};
+
+const stopLoadingBar = () => {
+  store.dispatch(stopLoading());
+};
+
+const Index = () => (
+  <h2>
+    <button
+      onClick={startLoadingBar}
+    >
+      Start loading
+    </button>
+    <button
+      onClick={stopLoadingBar}
+    >
+      Stop loading
+    </button>
+  </h2>
+);
 const About = () => <h2><Books/></h2>;
 const Users = () => <h2>{process.env.REACT_APP_ENV}</h2>;
 const Login = () => {
