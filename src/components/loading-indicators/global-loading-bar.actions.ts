@@ -1,3 +1,5 @@
+import { LaprThunkAction } from "./../../_interfaces/thunk";
+
 export const BASE_INTERVAL = 100;
 const RANDOM_POST_INTERVAL = 500;
 const FINISH_DELAY = 500;
@@ -5,8 +7,8 @@ const PROGRESS_INCREMENT = 0.05;
 
 export const START_LOADING = "START_LOADING";
 
-export const startLoading = () => (
-  (dispatch: any) => {
+export const startLoading = (): LaprThunkAction<void> => (
+  (dispatch) => {
     dispatch(setProgress(10));
     dispatch(setShowLoading(true));
     dispatch(progressLoading());
@@ -15,8 +17,8 @@ export const startLoading = () => (
 
 export const STOP_LOADING = "STOP_LOADING";
 
-export const stopLoading = () => (
-  (dispatch: any) => {
+export const stopLoading = (): LaprThunkAction<void> => (
+  (dispatch) => {
     dispatch(setStopping(true));
     setTimeout(() => {
       dispatch(setStopping(false));
@@ -27,8 +29,8 @@ export const stopLoading = () => (
 
 export const PROGRESS_LOADING = "PROGRESS_LOADING";
 
-export const progressLoading = () => (
-  (dispatch: any, getState: () => any) => {
+export const progressLoading = (): LaprThunkAction<void> => (
+  (dispatch, getState) => {
     setTimeout(() => {
       dispatch(
         setProgress(

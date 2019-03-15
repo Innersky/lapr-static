@@ -7,8 +7,7 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import AppRouter from "./app";
 import GlobalLoadingBar from "./components/loading-indicators/global-loading-bar";
-import globalLoadingBar from "./components/loading-indicators/global-loading-bar.reducer";
-import rootReducer from "./reducer";
+import { rootReducer } from "./redux-reducers";
 
 export const store = createStore(
   rootReducer,

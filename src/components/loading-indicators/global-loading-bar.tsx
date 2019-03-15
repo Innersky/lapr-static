@@ -1,14 +1,12 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { IRootReduxState } from "../../redux-reducers";
 import { BASE_INTERVAL } from "./global-loading-bar.actions";
+import { IGlobalLoadingBarState } from "./global-loading-bar.reducer";
 
-interface IGlobalLoadingBarProps {
-  progress: number;
-  show: boolean;
-  stopping: boolean;
-}
+type GlobalLoadingBarProps = IGlobalLoadingBarState;
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IRootReduxState) => {
   return {
     progress: state.globalLoadingBar.progress,
     show: state.globalLoadingBar.show,
@@ -16,9 +14,9 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-class GlobalLoadingBar extends React.Component<IGlobalLoadingBarProps> {
+class GlobalLoadingBar extends React.Component<GlobalLoadingBarProps> {
 
-  constructor(props: IGlobalLoadingBarProps) {
+  constructor(props: GlobalLoadingBarProps) {
     super(props);
   }
 

@@ -3,32 +3,23 @@ import * as React from "react";
 import { Query } from "react-apollo";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import * as styles from "./app.css";
-import { startLoading, stopLoading } from "./components/loading-indicators/global-loading-bar.actions";
 import { API_PATH } from "./constants/urls";
-import { store } from "./index";
+import { GlobalLoadingService } from "./helpers/loading-indicator";
 
 let email = "";
 let password= "";
 let firstName = "";
 let lastName = "";
 
-const startLoadingBar = () => {
-  store.dispatch(startLoading() as any);
-};
-
-const stopLoadingBar = () => {
-  store.dispatch(stopLoading() as any);
-};
-
 const Index = () => (
   <h2>
     <button
-      onClick={startLoadingBar}
+      onClick={GlobalLoadingService.start}
     >
       Start loading
     </button>
     <button
-      onClick={stopLoadingBar}
+      onClick={GlobalLoadingService.stop}
     >
       Stop loading
     </button>
